@@ -39,18 +39,22 @@ int	is_duplicate_number(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int	error;
 
+	if (argc == 2)
+	{
+		if (ft_atoi(argv[0]) == 2147483650)
+			return (-1);
+	}
 	i = 0;
 	while (i < argc)
 	{
 		j = i + 1;
 		while (j < argc - 1)
 		{
-			error = 0;
-			if (ft_atoi(argv[i], &error) == ft_atoi(argv[j], &error))
+			if (ft_atoi(argv[i]) == 2147483650 \
+				|| ft_atoi(argv[j]) == 2147483650)
 				return (-1);
-			if (error == 1)
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (-1);
 			j++;
 		}
